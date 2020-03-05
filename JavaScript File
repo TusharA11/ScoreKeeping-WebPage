@@ -1,0 +1,58 @@
+var button1 = document.querySelector("#p1");
+var button2 = document.querySelector("#p2");
+var reset = document.querySelector("#reset");
+var h1 = document.querySelector("#h11");
+var h2 = document.querySelector("#h12");
+var num = document.querySelector("input");
+var q = document.querySelector("#span");
+var p1Score = 0;
+var p2Score = 0;
+var gameOver = false;
+var win = 5;
+
+
+
+num.addEventListener("change", function(){
+	q.textContent = num.value;
+	win = num.value;
+});
+
+	button1.addEventListener("click", function(){
+	if(!gameOver){
+		p1Score++;
+		if(p1Score == win){
+			gameOver = true;
+			h1.classList.add("winner");
+			h2.classList.add("loser");
+		}
+	}
+	h1.textContent = p1Score;
+	h2.textContent = p2Score;
+});
+
+
+button2.addEventListener("click", function(){
+	if(!gameOver){
+		p2Score++;
+		if(p2Score == win){
+			gameOver = true;
+			h2.classList.add("winner");
+			h1.classList.add("loser");
+		}
+	}
+	h1.textContent = p1Score;
+	h2.textContent = p2Score;
+})
+;
+
+reset.addEventListener("click", function(){
+	p1Score = 0;
+	p2Score = 0;
+	h1.textContent = p1Score;
+	h2.textContent = p2Score;
+	h1.classList.remove("winner");
+	h1.classList.remove("loser");
+	h2.classList.remove("winner");
+	h2.classList.remove("loser");
+	gameOver = false;
+});
