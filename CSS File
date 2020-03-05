@@ -1,0 +1,14 @@
+/*this project has minimal styling*/
+/* feel free to add your own*/
+_________________________________________________________________
+
+
+.winner
+{
+	color : green;
+}
+
+.loser
+{
+	color : red ;
+}
